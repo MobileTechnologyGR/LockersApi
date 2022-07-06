@@ -5,12 +5,9 @@ using LockersService.Interfaces;
 using LockersService.Model;
 using LockersService.Models;
 using MailKit.Net.Smtp;
-using Microsoft.Extensions.Options;
 using MimeKit;
 using System.Net;
-using System.Drawing;
 using ZXing.QrCode;
-using MimeKit.Utils;
 using System.Globalization;
 
 namespace LockersService.Services
@@ -20,11 +17,6 @@ namespace LockersService.Services
 
         private readonly SmtpSettings _smtpSettings;
 
-        public EmailSenderService()
-        {
-        }
-
-
         public async Task<string> SendEmailAsync0(
             string recipientEmail,
             string recipientFirstName,
@@ -32,7 +24,6 @@ namespace LockersService.Services
             SmtpSettings smtpSettings,
             CsLockersTransaction lockersTransaction)
         {
-
 
             string QRstring = lockersTransaction.TaskCode.Split("-")[1] + "-" +
                 lockersTransaction.CustomerCode + "-" +

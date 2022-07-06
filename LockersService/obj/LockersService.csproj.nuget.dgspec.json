@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\salexiou.MOBILETECH\\Downloads\\LockersService\\LockersService\\LockersService.csproj": {}
+    "C:\\Users\\gpapoutsis\\source\\repos\\LockersApi\\LockersService\\LockersService.csproj": {}
   },
   "projects": {
-    "C:\\Users\\salexiou.MOBILETECH\\Downloads\\LockersService\\LockersService\\LockersService.csproj": {
+    "C:\\Users\\gpapoutsis\\source\\repos\\LockersApi\\LockersService\\LockersService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\salexiou.MOBILETECH\\Downloads\\LockersService\\LockersService\\LockersService.csproj",
+        "projectUniqueName": "C:\\Users\\gpapoutsis\\source\\repos\\LockersApi\\LockersService\\LockersService.csproj",
         "projectName": "LockersService",
-        "projectPath": "C:\\Users\\salexiou.MOBILETECH\\Downloads\\LockersService\\LockersService\\LockersService.csproj",
-        "packagesPath": "C:\\Users\\salexiou.MOBILETECH\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\salexiou.MOBILETECH\\Downloads\\LockersService\\LockersService\\obj\\",
+        "projectPath": "C:\\Users\\gpapoutsis\\source\\repos\\LockersApi\\LockersService\\LockersService.csproj",
+        "packagesPath": "C:\\Users\\gpapoutsis\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gpapoutsis\\source\\repos\\LockersApi\\LockersService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\salexiou.MOBILETECH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gpapoutsis\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -101,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
