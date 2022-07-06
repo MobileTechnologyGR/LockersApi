@@ -33,9 +33,11 @@ namespace LockersService.Services
 
             var message = new MimeMessage();
 
-            message.From.Add(MailboxAddress.Parse(smtpSettings.SenderEmail));
+            var sender = MailboxAddress.Parse(smtpSettings.SenderEmail);
+            sender.Name = smtpSettings.SenderName;
+            message.From.Add(sender);
             message.To.Add(MailboxAddress.Parse(recipientEmail));
-            message.Subject = "Mobile Technology MTLockers";
+            message.Subject = "Παράδοση εξοπλισμού σε θυρίδα";
             //message.Sender.Name = smtpSettings.UserName;
 
 
@@ -122,9 +124,10 @@ namespace LockersService.Services
             byte[] byteArray = GenerateQRcode(QRstring);
 
             var message = new MimeMessage();
-            message.From.Add(MailboxAddress.Parse(settings.SenderEmail));
-            message.To.Add(MailboxAddress.Parse(recipientEmail));
-            message.Subject = "Mobile Technology MTLockers";
+            var sender = MailboxAddress.Parse(settings.SenderEmail);
+            sender.Name = settings.SenderName;
+            message.From.Add(sender); message.To.Add(MailboxAddress.Parse(recipientEmail));
+            message.Subject = "Παραλαβή εξοπλισμού από θυρίδα";
 
             var parcelNuber = 0;
             if (lockersTransaction.ParcelNumber != null)
@@ -203,9 +206,10 @@ namespace LockersService.Services
 
             var message = new MimeMessage();
 
-            message.From.Add(MailboxAddress.Parse(smtpSettings.SenderEmail));
-            message.To.Add(MailboxAddress.Parse(recipientEmail));
-            message.Subject = "Mobile Technology MTLockers";
+            var sender = MailboxAddress.Parse(smtpSettings.SenderEmail);
+            sender.Name = smtpSettings.SenderName;
+            message.From.Add(sender); message.To.Add(MailboxAddress.Parse(recipientEmail));
+            message.Subject = "Παραλαβή παραγγελίας από θυρίδα";
 
             var parcelNuber = 0;
             if (lockersTransaction.ParcelNumber != null)
@@ -291,9 +295,10 @@ namespace LockersService.Services
 
             var message = new MimeMessage();
 
-            message.From.Add(MailboxAddress.Parse(smtpSettings.SenderEmail));
-            message.To.Add(MailboxAddress.Parse(recipientEmail));
-            message.Subject = "Mobile Technology MTLockers";
+            var sender = MailboxAddress.Parse(smtpSettings.SenderEmail);
+            sender.Name = smtpSettings.SenderName;
+            message.From.Add(sender); message.To.Add(MailboxAddress.Parse(recipientEmail));
+            message.Subject = "Επιτυχής παράδοση εξοπλισμού σε θυρίδα";
 
 
             var builder = new BodyBuilder();
@@ -366,9 +371,10 @@ namespace LockersService.Services
 
             var message = new MimeMessage();
 
-            message.From.Add(MailboxAddress.Parse(smtpSettings.SenderEmail));
-            message.To.Add(MailboxAddress.Parse(recipientEmail));
-            message.Subject = "Mobile Technology MTLockers";
+            var sender = MailboxAddress.Parse(smtpSettings.SenderEmail);
+            sender.Name = smtpSettings.SenderName;
+            message.From.Add(sender); message.To.Add(MailboxAddress.Parse(recipientEmail));
+            message.Subject = "Επιτυχής παραλαβή εξοπλισμού/παραγγελίας από θυρίδα";
 
 
             var builder = new BodyBuilder();
@@ -442,9 +448,10 @@ namespace LockersService.Services
 
             var message = new MimeMessage();
 
-            message.From.Add(MailboxAddress.Parse(smtpSettings.SenderEmail));
-            message.To.Add(MailboxAddress.Parse(recipientEmail));
-            message.Subject = "Mobile Technology MTLockers";
+            var sender = MailboxAddress.Parse(smtpSettings.SenderEmail);
+            sender.Name = smtpSettings.SenderName;
+            message.From.Add(sender); message.To.Add(MailboxAddress.Parse(recipientEmail));
+            message.Subject = "Κλείδωμα ντουλαπιού";
 
 
             var builder = new BodyBuilder();

@@ -80,12 +80,44 @@ namespace LockersService.Repository
             ).ToListAsync();
         }
 
+
+        public void addLockerTransaction(CsLockersTransaction model, string status = "1")
+        {
+            var mtLockersTransaction = new MtLockersTransaction();
+            mtLockersTransaction.TransactionGid = model.TransactionGid;
+            mtLockersTransaction.MailStatus = status;
+            mtLockersTransaction.CustomerName = model.CustomerName;
+            mtLockersTransaction.CustomerBranchCode = model.CustomerBranchCode;
+            mtLockersTransaction.TransactionType = model.TransactionType;
+            mtLockersTransaction.TaskCode = model.TaskCode;
+
+            _dbContext.MtLockersTransactions.Add(mtLockersTransaction);
+            _dbContext.SaveChanges();
+
+        }
+
+    
+        public void addLockerTransaction4(CsLockersTransaction model)
+        {
+
+            var mtLockersTransaction = new MtLockersTransaction();
+            mtLockersTransaction.TransactionGid = model.TransactionGid;
+            mtLockersTransaction.MailStatus = "2";
+            mtLockersTransaction.CustomerName = model.CustomerName;
+            mtLockersTransaction.CustomerBranchCode = model.CustomerBranchCode;
+            mtLockersTransaction.TransactionType = model.TransactionType;
+            mtLockersTransaction.TaskCode = model.TaskCode;
+
+            _dbContext.MtLockersTransactions.Add(mtLockersTransaction);
+            _dbContext.SaveChanges();
+
+        }
+
         public void Dispose()
         {
             //_dbContext.Dispose();
             GC.SuppressFinalize(this);
         }
-
 
     }
 }

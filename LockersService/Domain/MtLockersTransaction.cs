@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace LockersService.Model
 {
+
+    [Keyless]
     public partial class MtLockersTransaction
     {
-        public Guid? TransactionGid { get; set; }
+
+        public Guid TransactionGid { get; set; }
         public string? TaskCode { get; set; }
         public string? TransactionType { get; set; }
         public string? CustomerCode { get; set; }

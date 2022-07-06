@@ -1,13 +1,7 @@
 using LockersService.Interfaces;
-using LockersService.Model;
 using LockersService.Models;
 using LockersService.Repository;
-using LockersService.Services;
-using MailKit.Net.Smtp;
-using MailKit.Security;
 using Microsoft.AspNetCore.Mvc;
-using MimeKit;
-using MimeKit.Text;
 
 namespace LockersService.Controllers
 {
@@ -59,7 +53,9 @@ namespace LockersService.Controllers
                         string messageStatus = await _emailSender.SendEmailAsync0(
                         resultsArray[i].EmailAddress, resultsArray[i].ContactName, "", _smtpSettings, resultsArray[i]);
                         statusList.Add(messageStatus);
+                        _mailRepository.addLockerTransaction(resultsArray[i]);
                     }
+
                     return Ok(statusList);
                 }
                 catch (Exception ex)
@@ -91,6 +87,7 @@ namespace LockersService.Controllers
                         string messageStatus = await _emailSender.SendEmailAsync1(
                         resultsArray[i].EmailAddress, resultsArray[i].ContactName, "", _smtpSettings, resultsArray[i]);
                         statusList.Add(messageStatus);
+                        _mailRepository.addLockerTransaction(resultsArray[i]);
                     }
                     return Ok(statusList);
                 }
@@ -125,6 +122,8 @@ namespace LockersService.Controllers
                         string messageStatus = await _emailSender.SendEmailAsync3(
                         resultsArray[i].EmailAddress, resultsArray[i].ContactName, "", _smtpSettings, resultsArray[i]);
                         statusList.Add(messageStatus);
+
+                        _mailRepository.addLockerTransaction(resultsArray[i]);
                     }
                     return Ok(statusList);
                 }
@@ -142,6 +141,7 @@ namespace LockersService.Controllers
         }
 
 
+        //TODO(TEST)
 
         [HttpPost(Name = "CompletedDeliveredToCustomer")]
         public async Task<IActionResult> CompletedDeliveredToCustomer()
@@ -157,9 +157,11 @@ namespace LockersService.Controllers
                     var statusList = new List<String>();
                     for (int i = 0; i < resultsArray.Length; i++)
                     {
-                        string messageStatus = await _emailSender.SendEmailAsync4(
+                        string messageStatus = await _emailSender.SendEmailAsync5(
                         resultsArray[i].EmailAddress, resultsArray[i].ContactName, "", _smtpSettings, resultsArray[i]);
                         statusList.Add(messageStatus);
+
+                        _mailRepository.addLockerTransaction(resultsArray[i], "2");
                     }
                     return Ok(statusList);
                 }
@@ -191,9 +193,12 @@ namespace LockersService.Controllers
                     var statusList = new List<String>();
                     for (int i = 0; i < resultsArray.Length; i++)
                     {
-                        string messageStatus = await _emailSender.SendEmailAsync5(
+                        string messageStatus = await _emailSender.SendEmailAsync4(
                         resultsArray[i].EmailAddress, resultsArray[i].ContactName, "", _smtpSettings, resultsArray[i]);
                         statusList.Add(messageStatus);
+                        _mailRepository.addLockerTransaction4(resultsArray[i]);
+
+                        _mailRepository.addLockerTransaction(resultsArray[i], "2");
                     }
                     return Ok(statusList);
                 }

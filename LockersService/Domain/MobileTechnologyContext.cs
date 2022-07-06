@@ -251,7 +251,9 @@ namespace LockersService.Domain
 
             modelBuilder.Entity<MtLockersTransaction>(entity =>
             {
-                entity.HasNoKey();
+                //entity.HasNoKey();
+
+                entity.HasKey(e => e.TransactionGid);
 
                 entity.ToTable("mt_Lockers_Transactions");
 

@@ -19,7 +19,7 @@ namespace TestProject1
             smpt.Password = "!mail093*&Mt";
             smpt.UserName = "mailservice3";
             smpt.Server = "172.16.247.12";
-            smpt.SSL = false;
+            //smpt.SSL = false;
 
             csLockersTransaction = createTestModel();
 
@@ -34,15 +34,15 @@ namespace TestProject1
 
             //Act 
             var ans = await sut.SendEmailAsync0(
-                "gpapoutsis@mobiletechnology.gr",
-                "Giorgos",
+                "salexiou@mobiletechnology.gr",
+                "Sotos",
                 "",
                 smpt,
                 csLockersTransaction
             );
 
             //Assert
-            Console.WriteLine("here");
+            Assert.Equal("Email Sent Successfully", ans );
         }
 
         private CsLockersTransaction createTestModel()

@@ -10,6 +10,7 @@ namespace LockersService.Repository
         public Task<List<CsLockersTransaction>> CompleteDeliverToCustomer();
         public Task<List<CsLockersTransaction>> CompleteGetFromCustomer();
         public Task<List<CsLockersTransaction>> CloseParcel();
-
+        void addLockerTransaction(CsLockersTransaction model, string status = "1");
+        void addLockerTransaction4(CsLockersTransaction model);
     }
 }

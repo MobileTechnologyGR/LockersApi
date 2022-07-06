@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gpapoutsis\\source\\repos\\LockersService\\TestProject1\\UnitTests.csproj": {}
+    "C:\\Users\\salexiou.MOBILETECH\\source\\repos\\LockerApi\\TestProject1\\UnitTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gpapoutsis\\source\\repos\\LockersService\\LockersService\\LockersService.csproj": {
+    "C:\\Users\\salexiou.MOBILETECH\\source\\repos\\LockerApi\\LockersService\\LockersService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gpapoutsis\\source\\repos\\LockersService\\LockersService\\LockersService.csproj",
+        "projectUniqueName": "C:\\Users\\salexiou.MOBILETECH\\source\\repos\\LockerApi\\LockersService\\LockersService.csproj",
         "projectName": "LockersService",
-        "projectPath": "C:\\Users\\gpapoutsis\\source\\repos\\LockersService\\LockersService\\LockersService.csproj",
-        "packagesPath": "C:\\Users\\gpapoutsis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gpapoutsis\\source\\repos\\LockersService\\LockersService\\obj\\",
+        "projectPath": "C:\\Users\\salexiou.MOBILETECH\\source\\repos\\LockerApi\\LockersService\\LockersService.csproj",
+        "packagesPath": "C:\\Users\\salexiou.MOBILETECH\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\salexiou.MOBILETECH\\source\\repos\\LockerApi\\LockersService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\gpapoutsis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\salexiou.MOBILETECH\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -66,6 +66,10 @@
               "target": "Package",
               "version": "[6.0.6, )"
             },
+            "QRCoder": {
+              "target": "Package",
+              "version": "[1.4.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.1.4, )"
@@ -97,24 +101,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\gpapoutsis\\source\\repos\\LockersService\\TestProject1\\UnitTests.csproj": {
+    "C:\\Users\\salexiou.MOBILETECH\\source\\repos\\LockerApi\\TestProject1\\UnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gpapoutsis\\source\\repos\\LockersService\\TestProject1\\UnitTests.csproj",
+        "projectUniqueName": "C:\\Users\\salexiou.MOBILETECH\\source\\repos\\LockerApi\\TestProject1\\UnitTests.csproj",
         "projectName": "UnitTests",
-        "projectPath": "C:\\Users\\gpapoutsis\\source\\repos\\LockersService\\TestProject1\\UnitTests.csproj",
-        "packagesPath": "C:\\Users\\gpapoutsis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gpapoutsis\\source\\repos\\LockersService\\TestProject1\\obj\\",
+        "projectPath": "C:\\Users\\salexiou.MOBILETECH\\source\\repos\\LockerApi\\TestProject1\\UnitTests.csproj",
+        "packagesPath": "C:\\Users\\salexiou.MOBILETECH\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\salexiou.MOBILETECH\\source\\repos\\LockerApi\\TestProject1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\gpapoutsis\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\salexiou.MOBILETECH\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -129,8 +133,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\gpapoutsis\\source\\repos\\LockersService\\LockersService\\LockersService.csproj": {
-                "projectPath": "C:\\Users\\gpapoutsis\\source\\repos\\LockersService\\LockersService\\LockersService.csproj"
+              "C:\\Users\\salexiou.MOBILETECH\\source\\repos\\LockerApi\\LockersService\\LockersService.csproj": {
+                "projectPath": "C:\\Users\\salexiou.MOBILETECH\\source\\repos\\LockerApi\\LockersService\\LockersService.csproj"
               }
             }
           }
@@ -181,7 +185,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
