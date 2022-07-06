@@ -11,9 +11,7 @@ using System.Net;
 using System.Drawing;
 using ZXing.QrCode;
 using MimeKit.Utils;
-using Leadtools.Barcode;
-using Leadtools;
-using Leadtools.Codecs;
+using System.Globalization;
 
 namespace LockersService.Services
 {
@@ -47,12 +45,22 @@ namespace LockersService.Services
             message.From.Add(MailboxAddress.Parse(smtpSettings.SenderEmail));
             message.To.Add(MailboxAddress.Parse(recipientEmail));
             message.Subject = "Mobile Technology MTLockers";
+            //message.Sender.Name = smtpSettings.UserName;
+
+
+            var parcelNuber = 0;
+            if (lockersTransaction.ParcelNumber != null)
+                parcelNuber = Decimal.ToInt32((Decimal)lockersTransaction.ParcelNumber);
+            var bookingDate = "";
+            if (lockersTransaction.BookingDate != null)
+                bookingDate = ((DateTime)lockersTransaction.BookingDate).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
 
 
             var builder = new BodyBuilder();
             string image = "data:image/png;base64," + Convert.ToBase64String(byteArray);
             // Set the plain-text version of the message text
             builder.TextBody = @"Γεια σας,
+
 
             για την παράδοση του προς επισκευή εξοπλισμού σας, μπορείτε να χρησιμοποιήσετε τη θυρίδα δεμάτων της MobileTechnology 
             την «ημερομηνία δέσμευσης». 
@@ -64,18 +72,18 @@ namespace LockersService.Services
             ";
 
 
+
             // In order to reference selfie.jpg from the html text, we'll need to add it
             // to builder.LinkedResources and then use its Content-Id value in the img src.
 
             // Set the html version of the message text
-            builder.HtmlBody = string.Format(@$"<b><p>Γειά σας, <br>
-            <p>για την παράδοση του προς επισκευή εξοπλισμού σας, μπορείτε να χρησιμοποιήσετε τη θυρίδα δεμάτων <<{lockersTransaction.ParcelNumber}>> της MobileTechnology
-            την ημερομηνία δέσμευσης: <<{lockersTransaction.BookingDate}>>.<br>
-            <p>Μπορείτε να παραδώσετε το δέμα σας στα MT Lockers με τη χρήση του παρακάτω QR code:</b><br>" +
+            builder.HtmlBody = string.Format(@$"<p>Γειά σας, <br>
+            <p>για την παράδοση του προς επισκευή εξοπλισμού σας, μπορείτε να χρησιμοποιήσετε τη θυρίδα δεμάτων της Mobile Technology
+            με ημερομηνία δέσμευσης <b>{bookingDate}</b>.<br>
+            <p>Μπορείτε να παραδώσετε το δέμα σας με τη χρήση του παρακάτω QR code:<br>" +
             "<center><tb><img src='" + image + "'/> </center>" +
             "<p><br><i> Αυτό είναι ένα αυτοματοποιημένο ηλεκτρονικό μήνυμα, παρακαλούμε μην απαντήσετε.</i></p></br>" +
-            "<br><b> © Copyright 2022 - Mobile Technology - All Rights Reserved</b></br>" +
-            "<br><b>MOBILE TECHNOLOGY A.E.</b></br>" +
+            "<br>© Copyright 2022 - Mobile Technology - All Rights Reserved</br>" +
             "<br>");
 
             //<center><img src=""cid:{0}""></center>"//, image.ContentId);
@@ -127,6 +135,13 @@ namespace LockersService.Services
             message.To.Add(MailboxAddress.Parse(recipientEmail));
             message.Subject = "Mobile Technology MTLockers";
 
+            var parcelNuber = 0;
+            if (lockersTransaction.ParcelNumber != null)
+                parcelNuber = Decimal.ToInt32((Decimal)lockersTransaction.ParcelNumber);
+            var bookingDate = "";
+            if (lockersTransaction.BookingDate != null)
+                bookingDate = ((DateTime)lockersTransaction.BookingDate).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+
             var builder = new BodyBuilder();
             string image = "data:image/png;base64," + Convert.ToBase64String(byteArray);
 
@@ -147,14 +162,13 @@ namespace LockersService.Services
             //image.ContentId = MimeUtils.GenerateMessageId();
 
             // Set the html version of the message text
-            builder.HtmlBody = string.Format(@$"<b><p>Γειά σας, <br>
-            <p>για την παραλαβή του προς επισκευή σας εξοπλισμού, μπορείτε να χρησιμοποιήσετε τη θυρίδα δεμάτων <<{lockersTransaction.ParcelNumber}>> της MobileTechnology
-            την ημερομηνία δέσμευσης: <<{lockersTransaction.BookingDate}>>.<br>
-            <p>Μπορείτε να παραλάβετε το δέμα σας απο τα MΤ Lockers με τη χρήση του παρακάτω QR code:</b><br>" +
+            builder.HtmlBody = string.Format(@$"<p>Γειά σας, <br>
+            <p>για την παραλαβή του προς επισκευή σας εξοπλισμού, μπορείτε να χρησιμοποιήσετε τη θυρίδα δεμάτων της Mobile Technology
+            την ημερομηνία δέσμευσης <b>{bookingDate}</b>.<br>
+            <p>Μπορείτε να παραλάβετε το δέμα σας με τη χρήση του παρακάτω QR code:<br>" +
             "<center><tb><img src='" + image + "'/> </center>" +
             "<p><br><i> Αυτό είναι ένα αυτοματοποιημένο ηλεκτρονικό μήνυμα, παρακαλούμε μην απαντήσετε.</i></p></br>" +
-            "<br><b> © Copyright 2022 - Mobile Technology - All Rights Reserved</b></br>" +
-            "<br><b>MOBILE TECHNOLOGY A.E.</b></br>" +
+            "<br>© Copyright 2022 - Mobile Technology - All Rights Reserved</br>" +
             "<br>");
 
 
@@ -202,6 +216,12 @@ namespace LockersService.Services
             message.To.Add(MailboxAddress.Parse(recipientEmail));
             message.Subject = "Mobile Technology MTLockers";
 
+            var parcelNuber = 0;
+            if (lockersTransaction.ParcelNumber != null)
+                parcelNuber = Decimal.ToInt32((Decimal)lockersTransaction.ParcelNumber);
+            var bookingDate = "";
+            if (lockersTransaction.BookingDate != null)
+                bookingDate = ((DateTime)lockersTransaction.BookingDate).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
 
             var builder = new BodyBuilder();
             string image = "data:image/png;base64," + Convert.ToBase64String(byteArray);
@@ -224,16 +244,15 @@ namespace LockersService.Services
             //image.ContentId = MimeUtils.GenerateMessageId();
 
             // Set the html version of the message text
-            builder.HtmlBody = string.Format(@$" < b >< p > Γειά σας, < br >
+            builder.HtmlBody = string.Format(@$" < p > Γειά σας, < br >
             < p > Η παραγγελία σας είναι έτοιμη και θα βρίσκεται στη θυρίδα δεμάτων των ΜΤ Lockers προς παραλαβή
-            την ημερομηνία δέσμευσης: <<{lockersTransaction.BookingDate}>>.<br>
-            < p > Μπορείτε να παραλάβετε το δέμα σας με τη χρήση του παρακάτω QR code:</ b >< br > " +
+            την ημερομηνία δέσμευσης <b>{bookingDate}</b>.<br>
+            < p > Μπορείτε να παραλάβετε το δέμα σας με τη χρήση του παρακάτω QR code:< br > " +
             "<center><tb><img src='" + image + "'/> </center>" +
             "<p><br><i> Αυτό είναι ένα αυτοματοποιημένο ηλεκτρονικό μήνυμα, παρακαλούμε μην απαντήσετε.</i></p></br>" +
-            " <p><br><b> © Copyright 2022 - Mobile Technology - All Rights Reserved</b></p></br>" +
-            "<p><br><b>MOBILE TECHNOLOGY A.E.</b></p></br>" +
+            " <p><br> © Copyright 2022 - Mobile Technology - All Rights Reserved </p></br>" +
             "<br>");
-
+            Console.WriteLine("jhfjhgfjgh");
             //<center><img src=""cid:{0}""></center>", image.ContentId);
 
             // We may also want to attach a calendar event for Monica's party...
@@ -303,11 +322,10 @@ namespace LockersService.Services
             // to builder.LinkedResources and then use its Content-Id value in the img src.
 
             // Set the html version of the message text
-            builder.HtmlBody = string.Format(@$"<b><p>Γειά σας, <br>
+            builder.HtmlBody = string.Format(@$"<p>Γειά σας, <br>
             <p>Η παράδοση του δέματός σας πραγματοποιήθηκε επιτυχώς.<br>" +
-            "<p><br><i> Αυτό είναι ένα αυτοματοποιημένο ηλεκτρονικό μήνυμα, παρακαλούμε μην απαντήσετε.</i></p></br>" +
-            " <p><br><b> © Copyright 2022 - Mobile Technology - All Rights Reserved</b></p></br>" +
-            "<p><br><b>MOBILE TECHNOLOGY A.E.</b></p></br>" +
+            "<p><br><i>Αυτό είναι ένα αυτοματοποιημένο ηλεκτρονικό μήνυμα, παρακαλούμε μην απαντήσετε.</i></p></br>" +
+            " <p><br>© Copyright 2022 - Mobile Technology - All Rights Reserved</p></br>" +
             "<br>");
 
             //<center><img src=""cid:{0}""></center>"//, image.ContentId);
@@ -381,11 +399,10 @@ namespace LockersService.Services
             // to builder.LinkedResources and then use its Content-Id value in the img src.
 
             // Set the html version of the message text
-            builder.HtmlBody = string.Format(@$"<b><p>Γειά σας, <br>
+            builder.HtmlBody = string.Format(@$"<p>Γειά σας, <br>
             <p>Η παραλαβή του δέματός σας πραγματοποιήθηκε επιτυχώς.<br>" +
-            "<p><br><i> Αυτό είναι ένα αυτοματοποιημένο ηλεκτρονικό μήνυμα, παρακαλούμε μην απαντήσετε.</i></p></br>" +
-            " <p><br><b> © Copyright 2022 - Mobile Technology - All Rights Reserved</b></p></br>" +
-            "<p><br><b>MOBILE TECHNOLOGY A.E.</b></p></br>" +
+            "<p><br><i>Αυτό είναι ένα αυτοματοποιημένο ηλεκτρονικό μήνυμα, παρακαλούμε μην απαντήσετε.</i></p></br>" +
+            " <p><br>© Copyright 2022 - Mobile Technology - All Rights Reserved</p></br>" +
             "<br>");
             //<center><img src=""cid:{0}""></center>"//, image.ContentId);
 
@@ -458,15 +475,8 @@ namespace LockersService.Services
             // to builder.LinkedResources and then use its Content-Id value in the img src.
 
             // Set the html version of the message text
-            builder.HtmlBody = string.Format(@$"<b><p>Γειά σας, <br>
-            <p>για την παράδοση του προς επισκευή εξοπλισμού σας, μπορείτε να χρησιμοποιήσετε τη θυρίδα δεμάτων της MobileTechnology
-            την «ημερομηνία δέσμευσης».<br>
-            <p>Μπορείτε να παραδώσετε το δέμα σας στα Mobile Technology Lockers με τη χρήση του παρακάτω QR code:</b><br>" +
-            "<center><tb><img src='" + image + "'/> </center>" +
-            "<p><br><i> Αυτό είναι ένα αυτοματοποιημένο ηλεκτρονικό μήνυμα, παρακαλούμε μην απαντήσετε.</i></p></br>" +
-            " <p><br><b> © Copyright 2022 - Mobile Technology - All Rights Reserved</b></p></br>" +
-            "<p><br><b>MOBILE TECHNOLOGY A.E.</b></p></br>" +
-            "<br>");
+            builder.HtmlBody = string.Format(@$"<p>Γειά σας, <br>
+            ");
 
             //<center><img src=""cid:{0}""></center>"//, image.ContentId);
 
